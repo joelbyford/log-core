@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Error Log Generator - DotNet Core</h1>
+    <p>A simple error generator to throw error messages for use in learning or showing how logs appear in <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/azure-monitor-app-hub">Azure Application Insights</a>.</p>
+
+    <form method="POST">
+        <div class="text-left">
+            Message: <input asp-for="errorObj.Message" /><br/>
+            Severity/Level (0-5) <input asp-for="errorObj.Level" /><br/>
+            # Errors to Throw (1-100): <input asp-for="errorObj.Count" /> <br/>
+            <input type="submit" value="Throw" class="btn btn-primary">
+        </div>
+    </form>
+    <div class="text-left">
+        <ul>
+            <li>logger.LogCritical("Message"); <i>// Writes a critical message at log level 5</i></li>
+            <li>logger.LogError("Message"); <i>// Writes an error message at log level 4</i></li>
+            <li>logger.LogWarning("Message"); <i>// Writes a warning message at log level 3</i></li>
+            <li>logger.LogInformation("Message"); <i>// Writes an information message at log level 2</i></li>
+            <li>logger.LogDebug("Message"); <i>// Writes a debug message at log level 1</i></li>
+            <li>logger.LogTrace("Message"); <i>// Writes a detailed trace message at log level 0</i></li>
+        </ul>
+    </div>
+</div>
